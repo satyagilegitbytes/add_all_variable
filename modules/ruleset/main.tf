@@ -21,13 +21,18 @@ resource "github_repository_ruleset" "rules" {
         }
       }
     }
+  #  restrictions {
+  #  users = ["${var.github_owner}"] # Only allow the repository owner to bypass restrictions
+  #  teams = []
+  #}
+  
 
-    creation                = true
-    update                  = true
-    deletion                = true
-    required_linear_history = true
-    required_signatures     = true
-    non_fast_forward        = true
+    creation                = var.creation
+    update                  = var.update
+    deletion                = var.deletion
+    required_linear_history = var.required_linear
+    required_signatures     = var.required_sign
+    non_fast_forward        = var.non_fast_forward
     #required_code_scanning  = true
      pull_request {
       # Required code scanning alerts (if needed)

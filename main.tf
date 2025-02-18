@@ -11,6 +11,12 @@ module "repo_rulesets" {
   include_branches = each.value.ruleset.include_branches
   exclude_branches = each.value.ruleset.exclude_branches
   required_checks  = each.value.ruleset.required_checks
+  update           = each.value.ruleset.update
+  deletion         = each.value.ruleset.deletion
+  required_linear  = each.value.ruleset.required_linear
+  required_sign    = each.value.ruleset.required_sign
+  non_fast_forward = each.value.ruleset.non_fast_forward
+  #github_owner     = var.github_username
   
 }
 

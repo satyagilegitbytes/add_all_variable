@@ -19,6 +19,11 @@ variable "repositories" {
       include_branches = list(string)
       exclude_branches = list(string)
       required_checks  = list(string)
+      update           = optional(bool, true)
+      deletion         = optional(bool, true)
+      required_linear  = optional(bool, true)
+      required_sign    = optional(bool, true)
+      non_fast_forward = optional(bool, true)
     })
     branch_protection = object({
       protected_branches              = list(string)
